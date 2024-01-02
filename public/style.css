@@ -1,0 +1,53 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar #nav-search {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+.navbar #nav-search:hover {
+    background-color: #AEE6E6;
+    border-color: #AEE6E6;
+}
+
+.navbar {
+    background-color: white!important;
+    transition: all 300ms linear;
+}
+
+.navbar-dark {
+    background-color: #FFA45B !important;
+    transition: all 300ms linear;
+}
+
+#home-hero {
+    background-color: #FFA45B!important;
+}
+
+#home-hero h1 {
+    font-size: 80px;
+}
+
+button, .btn {
+    border-radius: 200px!important;
+}
+
+#hero-buttons button {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#hero-buttons #hero-explore-btn {
+    background-color: #000000;
+    border: #000000 solid;
+}
+
+#hero-buttons #hero-explore-btn:hover {
+    background-color: #AEE6E6;
+    border: #AEE6E6 solid;
+}
