@@ -1,8 +1,7 @@
-<%- include("partials/header.ejs") %>
 
 <section>
-  <div class="text-secondary pt-4 pb-5 px-5" id="home-hero">
-    <div class="py-5">
+  <div class="text-secondary hero">
+    <div class="py-5 container">
       <h1 class="fw-bold text-white mb-4">Blog.io</h1>
       <div class="col-lg-9">
         <p class="fs-5 mb-5 text-white">
@@ -11,32 +10,34 @@
             Get started now.
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-left" id="hero-buttons">
-          <button type="button" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold text-white" id="hero-explore-btn">Explore</button>
-          <button type="button" class="btn btn-outline-light btn-lg px-4" id="hero-write-btn">Write</button>
+          <form action="/admin" method="GET">
+            <button type="submit" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold text-white black-btn">Sign In</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </section>
 <section>
-  <div class="py-5 px-5">
-    <h1 class="fw-bold pb-5">Recent posts</h1>
-    <div class="row mb-3">
-      <div class="col-md-4 themed-grid-col"></div>
-      <div class="col-md-4 themed-grid-col"></div>
-      <div class="col-md-4 themed-grid-col"></div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-4 themed-grid-col"></div>
-      <div class="col-md-4 themed-grid-col"></div>
-      <div class="col-md-4 themed-grid-col"></div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-4 themed-grid-col"></div>
-      <div class="col-md-4 themed-grid-col"></div>
-      <div class="col-md-4 themed-grid-col"></div>
-    </div>
+  <div class="articles container">
+    <h1 class="fw-bold pt-5 pb-3">Recent posts</h1>
+    <ul class="article-ul">
+
+      <% data.forEach(post => { %>
+        
+        <li>
+          <a href="/post/<%= post._id %>">
+            <span><%= post.title %></span>
+            <span class="article-date"><%= post.createdAt.toDateString() %></span>
+          </a>
+        </li>
+
+      <% }); %>
+    </ul>
+
+    <% if (nextPage !== null) { %>
+      <a href="/?page=<%= nextPage %>" class="pagination pt-3">&lt; View Older Posts</a>
+    <% } %>
+     
   </div>
 </section>
-
-<%- include("partials/footer.ejs") %>

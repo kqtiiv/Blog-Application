@@ -1,0 +1,18 @@
+
+<div class="container pt-5">
+    <h1 class="fw-bold">Search results</h1>
+
+    <ul class="article-ul">
+  
+        <% data.forEach(post => { %>
+          
+          <li>
+            <a href="/post/<%= post._id %>">
+              <span><%= post.title %></span>
+              <span class="article-date"><%= post.createdAt.toDateString() %></span>
+            </a>
+          </li>
+  
+        <% }); %>
+    </ul>
+</div>

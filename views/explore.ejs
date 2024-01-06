@@ -1,23 +1,30 @@
-<%- include("partials/header.ejs") %>
-
 <section>
-    <div class="text-secondary pt-4 pb-5 px-5" id="home-hero">
-        <div class="py-5">
+    <div class="text-secondary pt-4 pb-5 px-5 hero">
+        <div class="container">
           <h1 class="fw-bold text-white mb-4">Explore</h1>
-          <div class="col-lg-9">
-            <p class="fs-5 text-white">
-                Search through ALL your previous blogs!
-            </p>
-          </div>
+          <p class="fs-5 text-white">
+              Search through ALL your previous blogs!
+          </p>
         </div>
       </div>
     <div>
 </section>
 <section>
-    <div class="py-5 px-5">
-        <h1 class="fw-bold pb-5">All posts</h1>
+    <div class="articles container pt-5">
+      <h1 class="fw-bold pb-3">All posts</h1>
+      <ul class="article-ul">
+  
+        <% data.forEach(post => { %>
+          
+          <li>
+            <a href="/post/<%= post._id %>">
+              <span><%= post.title %></span>
+              <span class="article-date"><%= post.createdAt.toDateString() %></span>
+            </a>
+          </li>
+  
+        <% }); %>
+      </ul>
     </div>
 </section>
     
-
-<%- include("partials/footer.ejs") %>

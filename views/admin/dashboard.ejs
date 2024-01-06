@@ -1,0 +1,54 @@
+
+<section>
+    <div class="text-secondary hero">
+      <div class="py-5 container">
+        <h1 class="fw-bold text-white mb-4">Blog.io</h1>
+        <div class="col-lg-9">
+          <p class="fs-5 mb-5 text-white">
+              Share stories about your life with just a few key taps.
+              Scroll through your previous blogs and look back on all your precious memories! <br/>
+              Get started now.
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-left" id="hero-buttons">
+            <form action="/write" method="GET">
+                <button type="submit" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold text-white black-btn">Write</button>
+            </form>
+            <form action="/logout" method="GET">
+                <button type="submit" class="btn btn-outline-light btn-lg px-4" id="hero-write-btn">Logout</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="articles container">
+      <h1 class="fw-bold pt-5 pb-3">Posts</h1>
+      <ul class="article-ul">
+  
+        <% data.forEach(post => { %>
+          
+          <li>
+            <div class="post">
+                <a href="/post/<%= post._id %>"><%= post.title %></a>
+                <div class="post-btn">
+                    <form action="/edit-post/<%= post._id %>" method="GET">
+                        <button class="btn black-btn" type="submit">Edit</button>
+                    </form>
+                    <form action="/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+                        <button class="btn black-btn" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+          </li>
+  
+        <% }); %>
+      </ul>
+  
+      <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination pt-3">&lt; View Older Posts</a>
+      <% } %>
+       
+    </div>
+  </section>
+  
